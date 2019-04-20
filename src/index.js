@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types'
 import pieData from './math/pieData';
 import randomId from './utils/randomId';
 
@@ -12,18 +12,6 @@ import LabelPath from './slice/labelPath';
 import Label from './slice/label';
 
 export default class Pie3D extends React.Component {
-
-  static propTypes = {
-    data: React.PropTypes.arrayOf(React.PropTypes.oneOfType([
-      React.PropTypes.number,
-      React.PropTypes.shape({
-      })
-    ])).isRequired,
-    config: React.PropTypes.shape({
-      onSliceClick: React.PropTypes.function
-    })
-  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -88,12 +76,12 @@ export default class Pie3D extends React.Component {
               return (
                 <g key={d.index}>
                   <EndWall d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                 </g>
               );
@@ -105,37 +93,37 @@ export default class Pie3D extends React.Component {
               return (
                 <g key={d.index}>
                   <StartWall d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   <EndWall d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   <Inner d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   {
                     d.startAngle < Math.PI ?
                       <Outer d={d}
-                         rx={rx}
-                         ry={ry}
-                         h={h}
-                         move={this.move}
-                         moved={this.checkMoved(d.index)}
+                        rx={rx}
+                        ry={ry}
+                        h={h}
+                        move={this.move}
+                        moved={this.checkMoved(d.index)}
                       /> :
                       null
                   }
@@ -149,27 +137,27 @@ export default class Pie3D extends React.Component {
               return (
                 <g key={d.index}>
                   <StartWall d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   <EndWall d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   <Outer d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                 </g>
               );
@@ -181,52 +169,52 @@ export default class Pie3D extends React.Component {
               return (
                 <g key={d.index}>
                   <EndWall d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   {
                     d.startAngle > Math.PI ?
                       <StartWall d={d}
-                         rx={rx}
-                         ry={ry}
-                         h={h}
-                         ir={ir}
-                         move={this.move}
-                         moved={this.checkMoved(d.index)}
+                        rx={rx}
+                        ry={ry}
+                        h={h}
+                        ir={ir}
+                        move={this.move}
+                        moved={this.checkMoved(d.index)}
                       /> :
                       null
                   }
                   <Inner d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   {
                     d.startAngle <= Math.PI ?
                       <StartWall d={d}
-                         rx={rx}
-                         ry={ry}
-                         h={h}
-                         ir={ir}
-                         move={this.move}
-                         moved={this.checkMoved(d.index)}
+                        rx={rx}
+                        ry={ry}
+                        h={h}
+                        ir={ir}
+                        move={this.move}
+                        moved={this.checkMoved(d.index)}
                       /> :
                       null
                   }
                   {d.startAngle < Math.PI ?
                     <Outer d={d}
-                       rx={rx}
-                       ry={ry}
-                       h={h}
-                       move={this.move}
-                       moved={this.checkMoved(d.index)}
+                      rx={rx}
+                      ry={ry}
+                      h={h}
+                      move={this.move}
+                      moved={this.checkMoved(d.index)}
                     /> :
                     null
                   }
@@ -240,27 +228,27 @@ export default class Pie3D extends React.Component {
               return (
                 <g key={d.index}>
                   <EndWall d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   <StartWall d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   <Outer d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                 </g>
               );
@@ -272,29 +260,29 @@ export default class Pie3D extends React.Component {
               return (
                 <g key={d.index}>
                   <StartWall d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   <Inner d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+                    rx={rx}
+                    ry={ry}
+                    h={h}
+                    ir={ir}
+                    move={this.move}
+                    moved={this.checkMoved(d.index)}
                   />
                   {
                     d.startAngle < Math.PI ?
                       <Outer d={d}
-                         rx={rx}
-                         ry={ry}
-                         h={h}
-                         move={this.move}
-                         moved={this.checkMoved(d.index)}
+                        rx={rx}
+                        ry={ry}
+                        h={h}
+                        move={this.move}
+                        moved={this.checkMoved(d.index)}
                       /> :
                       null
                   }
@@ -304,34 +292,34 @@ export default class Pie3D extends React.Component {
           })}
           {data.map(d => rx ?
             <Top key={d.index}
-                     d={d}
-                     rx={rx}
-                     ry={ry}
-                     ir={ir}
-                     move={this.move}
-                     moved={this.checkMoved(d.index)}
+              d={d}
+              rx={rx}
+              ry={ry}
+              ir={ir}
+              move={this.move}
+              moved={this.checkMoved(d.index)}
             />
             : null
           )}
           {data.map(d =>
             rx ?
               <LabelPath key={d.index}
-                         d={d} rx={rx}
-                         ry={ry} h={h}
-                         moved={this.checkMoved(d.index)}
+                d={d} rx={rx}
+                ry={ry} h={h}
+                moved={this.checkMoved(d.index)}
               />
-            : null
+              : null
           )}
           {data.map(d =>
             rx ?
               <Label key={d.index}
-                     d={d}
-                     rx={rx}
-                     ry={ry}
-                     h={h}
-                     moved={this.checkMoved(d.index)}
+                d={d}
+                rx={rx}
+                ry={ry}
+                h={h}
+                moved={this.checkMoved(d.index)}
               />
-            : null
+              : null
           )}
         </g>
       </svg>
