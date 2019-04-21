@@ -17,20 +17,18 @@ export default class Pie3D extends React.Component {
     this.state = {
       width: 0,
       height: 0,
-      chartId: randomId(10)
     };
   }
 
   componentDidMount() {
-    this.updateConfig();
-    window.addEventListener('resize', () => this.updateConfig());
+    this.updateConfig()
+    window.addEventListener('resize', this.updateConfig)
   }
 
   updateConfig = () => {
-    const height = document.getElementById(this.state.chartId).clientHeight || 0;
-    this.setState({ height });
-    const width = document.getElementById(this.state.chartId).clientWidth || 0;
-    this.setState({ width });
+    const height = this.svgRef.clientHeight || 0
+    const width = this.svgRef.clientWidth || 0
+    this.setState({ height, width })
     this.rx = height / 2;
     this.ir = 0.6;
     this.h = 40;
@@ -68,7 +66,7 @@ export default class Pie3D extends React.Component {
     const ry = rx * angle / 90;
     h = (90 - angle) / 90 * h;
     return (
-      <svg style={{ width: '100%', height: '100%' }} id={this.state.chartId}>
+      <svg style={{ width: '100%', height: '100%' }} ref={node => this.svgRef = node}>
         <g transform={`translate(${this.state.width / 2}, ${this.state.height / 2})`}>
           {/* exeption */}
           {data.map(d => {
