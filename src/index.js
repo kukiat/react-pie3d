@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import pieData from './math/pieData';
 import randomId from './utils/randomId';
 
@@ -27,9 +27,9 @@ export default class Pie3D extends React.Component {
   }
 
   updateConfig = () => {
-    const height = document.getElementById(this.state.chartId).clientHeight;
+    const height = document.getElementById(this.state.chartId).clientHeight || 0;
     this.setState({ height });
-    const width = document.getElementById(this.state.chartId).clientWidth;
+    const width = document.getElementById(this.state.chartId).clientWidth || 0;
     this.setState({ width });
     this.rx = height / 2;
     this.ir = 0.6;
